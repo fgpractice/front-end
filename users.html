@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>FGPractice - Пользователи</title>
+
+  <!-- Шрифты -->
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Стили -->
+  <link href="assets/css/sba.min.css" rel="stylesheet">
+  <link href="assets/css/custom-styles.css" rel="stylesheet">
+
+  <!-- Стили DataTables -->
+  <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Обертка страницы (Wrapper) -->
+  <div id="wrapper">
+
+    <!-- Боковое меню (Sidebar) -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Логотип -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon">
+        </div>
+        <div class="sidebar-brand-text mx-3">FGPractice</div>
+      </a>
+
+      <!-- Разделитель -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Пункт меню. Главная -->
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-home"></i>
+          <span>Главная</span></a>
+      </li>
+
+      <!-- Разделитель -->
+      <hr class="sidebar-divider">
+
+      <!-- Заголовок. Основные -->
+      <div class="sidebar-heading">
+        Основные
+      </div>
+
+      <!-- Пункт меню. Пользователи (активный) -->
+      <li class="nav-item active">
+        <a class="nav-link" href="users.html">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Пользователи</span></a>
+      </li>
+
+      <!-- Разделитель -->
+      <hr class="sidebar-divider">
+
+       <!-- Заголовок. Вводы -->
+       <div class="sidebar-heading">
+        Вводы
+      </div>
+
+      <!-- Пункт меню. Торговые точки -->
+      <li class="nav-item">
+        <a class="nav-link" href="markets.html">
+          <i class="fas fa-fw fa-store"></i>
+          <span>Торговые точки</span></a>
+      </li>
+
+      <!-- Пункт меню. Категории -->
+      <li class="nav-item">
+        <a class="nav-link" href="categories.html">
+          <i class="fas fa-fw fa-sitemap"></i>
+          <span>Категории</span></a>
+      </li>
+
+      <!-- Пункт меню. Прайс-листы -->
+      <li class="nav-item">
+        <a class="nav-link" href="price-lists.html">
+          <i class="fas fa-fw fa-dollar-sign"></i>
+          <span>Прайс-листы</span></a>
+      </li>
+
+      <!-- Пункт меню. Товары -->
+      <li class="nav-item">
+        <a class="nav-link" href="products.html">
+          <i class="fas fa-fw fa-list"></i>
+          <span>Товары</span></a>
+      </li>
+
+      <!-- Пункт меню. Заказы -->
+      <li class="nav-item">
+        <a class="nav-link" href="orders.html">
+          <i class="fas fa-fw fa-shopping-cart"></i>
+          <span>Заказы</span></a>
+      </li>
+
+      <!-- Разделитель -->
+      <hr class="sidebar-divider">
+
+      <!-- Сворачивание бокового меню (сайдбар) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- Конец бокового меню -->
+
+    <!-- Контент обертки -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Основной контент -->
+      <div id="content">
+
+        <!-- Шапка (навбар) -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Сворачивание бокового меню (шапка) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Форма поиска -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Найти..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Наваигация -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Форма поиска для маленьких экранов -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+             
+            <!-- Пункт мнню. Информация о пользователе -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle fa-fw"></i>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Имя Пользователя</span>
+              </a>
+              <!-- Выпадающее меню -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Выйти
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- Конец шапки -->
+
+        <!-- Начало контента страницы -->
+        <div class="container-fluid">
+
+          <!-- Заголовок страницы -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Управление пользователями</h1>
+          </div>
+
+          <form method="POST" role="form">
+            <div class="form-row align-items-center">
+              <div class="col-sm-3 my-1">
+                <label class="sr-only" for="login">Логин</label>
+                <input type="text" class="form-control" id="login" name="login" placeholder="Логин">
+              </div>
+
+              <div class="col-sm-3 my-1">
+                <label class="sr-only" for="password">Пароль</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Пароль">
+              </div>
+
+              <div class="col-sm-3 my-1">
+                <label class="sr-only" for="name">Имя</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Имя">
+              </div>
+
+              <div class="col-sm-3 my-1">
+                <label class="sr-only" for="email">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+              </div>
+
+              <div class="col-sm-3 my-1">
+                <label class="sr-only" for="phone">Телефон</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Телефон">
+              </div>
+
+              <div class="col-auto my-1">
+                <label class="sr-only" for="imei">IMEI</label>
+                <input type="text" class="form-control" id="imei" name="imei" placeholder="IMEI">
+              </div>
+              
+              <div class="col-auto my-1">
+                <button type="submit" class="btn btn-primary">Добавить пользователя</button>
+              </div>
+
+            </div>
+          </form>
+          <hr>
+
+          <!-- DataTales -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Список пользователей</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>№</th>
+                      <th>Логин</th>
+                      <th>Пароль</th>
+                      <th>Имя</th>
+                      <th>E-mail</th>
+                      <th>Телефон</th>
+                      <th>IMEI</th>
+                      <th>Редактирование</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>№</th>
+                      <th>Логин</th>
+                      <th>Пароль</th>
+                      <th>Имя</th>
+                      <th>E-mail</th>
+                      <th>Телефон</th>
+                      <th>IMEI</th>
+                      <th>Редактирование</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>admin</td>
+                      <td>admin</td>
+                      <td>Администратор</td>
+                      <td>admin@fg.relzon.com</td>
+                      <td>+79123456789</td>
+                      <td></td>
+                      <td>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#editModal">
+                          <i class="fas fa-pen fa-sm"></i>
+                        </a>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#deleteModal">
+                          <i class="fas fa-trash fa-sm"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>spiridonov</td>
+                      <td>spiridonov</td>
+                      <td>Александр Спиридонов</td>
+                      <td>spir.alex2017@yandex.ru</td>
+                      <td>+79123456789</td>
+                      <td>865689039704824</td>
+                      <td>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#editModal">
+                          <i class="fas fa-pen fa-sm"></i>
+                        </a>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#deleteModal">
+                          <i class="fas fa-trash fa-sm"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>bartsevich</td>
+                      <td>bartsevich</td>
+                      <td>Роман Барцевич</td>
+                      <td>me@relzon.com</td>
+                      <td>+79123456789</td>
+                      <td>865689039704824</td>
+                      <td>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#editModal">
+                          <i class="fas fa-pen fa-sm"></i>
+                        </a>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#deleteModal">
+                          <i class="fas fa-trash fa-sm"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- Конец основного контента -->
+
+      <!-- Подвал -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="row text-center">
+              <div class="col-5">
+                <span>Свобода Вашего бизнеса на электронных просторах</span>
+              </div>
+              <div class="col-4">
+                <span>г. Новочеркасск, ул. Троицкая 39/166</span>
+              </div>
+              <div class="col-3">
+                <span>тел./факс +7 (8635) 22-41-10</span>
+              </div>
+          </div>
+          <hr>
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; FGPractice 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- Конец подвала -->
+
+    </div>
+    <!-- Конец контентной части -->
+
+  </div>
+  <!-- Конец обертки страницы -->
+
+  <!-- Кнопка прокрутки страницы -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+    <!-- Модальное окно изменение записи -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Изменение записи</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="editLogin">Логин:</label>
+                        <input required id="editLogin" name="editLogin" class="form-control" type="text" placeholder="Введите логин">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Пароль:</label>
+                        <input id="editPassword" name="editPassword" class="form-control" type="password" placeholder="Введите пароль">
+                    </div>
+                    <div class="form-group">
+                        <label for="editName">Имя:</label>
+                        <input id="editName" name="editName" class="form-control" type="text" placeholder="Введите имя">
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">Email:</label>
+                        <input id="editEmail" name="editEmail" class="form-control" type="email" placeholder="Введите Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="editPhone">Телефон:</label>
+                        <input id="editPhone" name="editPhone" class="form-control" type="tel" placeholder="Введите телефон">
+                    </div>
+                    <div class="form-group">
+                        <label for="editIMEI">IMEI:</label>
+                        <input id="editIMEI" name="editIMEI" class="form-control" type="text" placeholder="Введите IMEI">
+                    </div>
+                    
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Отмена</button>
+              <button class="btn btn-primary" type="submit">Изменить</button>
+            </div>
+              </form>
+          </div>
+        </div>
+      </div>
+  
+    <!-- Модальное окно подтверждения удаления записи -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Удаление записи</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">Вы действительно хотите удалить эту запись?</div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Отмена</button>
+              <a class="btn btn-primary" href="#">Удалить</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!-- Модальное окно выхода -->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Хотите выйти?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Нажмите "Выйти" если действительно хотите завершить текущую сессию.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Отмена</button>
+          <a class="btn btn-primary" href="login.html">Выйти</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery, Bootstrap и DataTables -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="assets/js/sba.min.js"></script>
+  <script src="assets/vendor/datatables/datatables.min.js"></script>
+  <script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="assets/js/datatables.js"></script>
+
+</body>
+
+</html>
